@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Calendar styles to ensure dates are visible */
+.calendar-container {
+  --rdp-cell-size: 40px;
+  --rdp-accent-color: #ec4899;
+  --rdp-background-color: rgba(236, 72, 153, 0.1);
+  --rdp-accent-color-dark: #ec4899;
+  --rdp-background-color-dark: rgba(236, 72, 153, 0.2);
+  --rdp-outline: 2px solid var(--rdp-accent-color);
+  --rdp-outline-selected: 2px solid var(--rdp-accent-color);
+  background-color: #ffd1dc !important; /* Pastel pink background */
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+/* Reset any potential conflicting styles */
+.calendar-container .rdp-months {
+  width: 100%;
+}
+
+.calendar-container .rdp-month {
+  width: 100%;
+}
+
+.calendar-container .rdp-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 2px;
+}
+
+.calendar-container .rdp-cell {
+  padding: 0;
+  text-align: center;
+  height: 40px;
+  width: 40px;
+}
+
+.calendar-container .rdp-day {
+  height: 40px !important;
+  width: 40px !important;
+  max-width: 40px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: white !important;
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.calendar-container .rdp-day_today {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+  font-weight: bold !important;
+}
+
+.calendar-container .rdp-day_selected {
+  background-color: #ec4899 !important;
+  color: white !important;
+}
+
+.calendar-container .rdp-head_cell {
+  font-weight: bold !important;
+  color: black !important;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 0;
+  height: 40px;
+}
+
+.calendar-container .rdp-caption {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black !important;
+  font-weight: bold;
+  padding: 0 0 16px 0;
+  position: relative;
+}
+
+.calendar-container .rdp-nav {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.calendar-container .rdp-nav_button {
+  color: black !important;
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+}
+
+/* Ensure the date number is visible */
+.calendar-container .rdp-day_content {
+  color: black !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  height: auto !important;
+  width: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Ensure the date number is visible in all states */
+.calendar-container .rdp-day:hover .rdp-day_content,
+.calendar-container .rdp-day_today .rdp-day_content {
+  color: black !important;
+}
+
+/* Selected date should have white text for better contrast */
+.calendar-container .rdp-day_selected .rdp-day_content {
+  color: white !important;
+}
+
+/* Ensure the date number is visible in all states */
+.calendar-container .rdp-day:hover,
+.calendar-container .rdp-day:focus {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
